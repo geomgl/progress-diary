@@ -2,6 +2,11 @@ import sqlite3
 
 connection = sqlite3.connect("data.db")
 
+# get named access to row fields
+# now rows are constructed as dictionaries instead of tuples
+
+connection.row_factory = sqlite3.Row
+
 
 def createTable():
     with connection:
@@ -15,4 +20,5 @@ def add_entry(entry_content, entry_date):
 
 
 def get_entries():
-    return entries
+    cursor = connection.execute("SELECT * from entries;")
+    return cursor

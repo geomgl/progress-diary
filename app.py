@@ -17,7 +17,7 @@ def prompt_new_entry():
 
 def view_entries(entries):
     for entry in entries:
-        print(f"{entry['date']}\n{entry['content']}\n\n")
+        print(f"{entry['entry_date']}\n{entry['entry_content']}\n\n")
 
 
 print(welcome)
@@ -29,6 +29,8 @@ while user_input != 3:
         prompt_new_entry()
     elif user_input == "2":
         view_entries(get_entries())
+    elif user_input == "3":
+        break
     else:
         print("Please enter either 1, 2, or 3")
 
